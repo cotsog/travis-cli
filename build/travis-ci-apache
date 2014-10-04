@@ -11,7 +11,6 @@
   
   ErrorLog %TRAVIS_BUILD_DIR%/error.log
   LogLevel debug
-  CustomLog %TRAVIS_BUILD_DIR%/access.log
 
   # Wire up Apache to use Travis CI's php-fpm.
   <IfModule mod_fastcgi.c>
