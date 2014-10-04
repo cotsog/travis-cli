@@ -1,5 +1,4 @@
 <VirtualHost *:80>
-  # [...]
 
   DocumentRoot %TRAVIS_BUILD_DIR%
 
@@ -9,6 +8,10 @@
     Order deny,allow
     Allow from all
   </Directory>
+  
+  ErrorLog %TRAVIS_BUILD_DIR%/error.log
+  LogLevel debug
+  CustomLog %TRAVIS_BUILD_DIR%/access.log
 
   # Wire up Apache to use Travis CI's php-fpm.
   <IfModule mod_fastcgi.c>
@@ -18,5 +21,4 @@
     FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -host 127.0.0.1:9000 -pass-header Authorization
   </IfModule>
 
-  # [...]
 </VirtualHost>
